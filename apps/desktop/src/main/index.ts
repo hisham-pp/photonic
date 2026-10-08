@@ -1,13 +1,16 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
-import { setupOAuthHandlers } from './oauth';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+import { setupScannerHandlers } from './scanner';
 
 function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
     frame: false,
-    titleBarStyle: 'hidden',
+    icon: path.join(__dirname, '../../public/icon.jpg'),
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
       contextIsolation: true,
@@ -31,7 +34,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  setupOAuthHandlers();
+  setupScannerHandlers();
   createWindow();
 });
 

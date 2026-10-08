@@ -1,17 +1,20 @@
-import React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import theme from '../theme';
+import './globals.css'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata = {
+  title: 'Photonic — Google Photos Desktop Client',
+  description: 'Ultra-fast, privacy-conscious desktop client for Google Photos',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+      <body style={{ margin: 0, padding: 0, overflow: 'hidden', backgroundColor: '#090A0F' }}>
+        {children}
       </body>
     </html>
-  );
+  )
 }

@@ -2,9 +2,15 @@
   "name": "photonic",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "pnpm --filter @photonic/desktop dev & pnpm --filter @photonic/website dev",
-    "build": "pnpm -r build",
+    "dev": "npm run dev --workspace=apps/desktop",
+    "dev:web": "npm run dev --workspace=apps/website",
+    "dev:all": "npm run dev --workspace=apps/desktop & npm run dev --workspace=apps/website",
+    "build": "npm run build --workspaces --if-present",
     "test": "vitest",
     "lint": "eslint ."
   },
