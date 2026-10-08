@@ -6,3 +6,4 @@ release/
 *.db
 *.db-journal
 .env
+.agents/
