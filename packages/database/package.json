@@ -1,0 +1,20 @@
+{
+  "name": "@photonic/database",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "generate": "drizzle-kit generate:sqlite"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.0",
+    "better-sqlite3": "^9.4.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.14",
+    "typescript": "^5.4.0",
+    "@types/better-sqlite3": "^7.6.9"
+  }
+}

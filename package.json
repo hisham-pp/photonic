@@ -1,0 +1,17 @@
+{
+  "name": "photonic",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @photonic/desktop dev & pnpm --filter @photonic/website dev",
+    "build": "pnpm -r build",
+    "test": "vitest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
+  }
+}
