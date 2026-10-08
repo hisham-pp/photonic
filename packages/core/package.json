@@ -8,8 +8,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@photonic/database": "workspace:*",
-    "@photonic/google-photos": "workspace:*"
+    "@photonic/database": "*"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
