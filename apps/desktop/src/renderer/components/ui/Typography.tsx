@@ -1,20 +1,13 @@
 import React from 'react';
-import { Typography as MuiTypography, TypographyProps, styled } from '@mui/material';
+import { Typography as MuiTypography, TypographyProps } from '@mui/material';
 
-const StyledTypography = styled(MuiTypography)(({ theme }) => ({
-}));
-
-export const Typography: React.FC<TypographyProps & { gradient?: boolean }> = ({ gradient, sx, ...props }) => {
+export const Typography: React.FC<TypographyProps & { gradient?: boolean }> = ({ gradient, ...props }) => {
   return (
-    <StyledTypography 
+    <MuiTypography 
       {...props} 
       sx={{
-        ...(gradient && {
-          background: 'linear-gradient(135deg, #fff 0%, #a0c0d0 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        }),
-        ...sx
+        color: props.color || (gradient ? '#FAFAFA' : undefined), // Removed glow/gradient
+        ...props.sx
       }}
     />
   );

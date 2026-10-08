@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import { GoogleOAuthProvider } from '@photonic/google-photos/auth/GoogleOAuthProvider';
+import { GoogleOAuthProvider } from '@photonic/google-photos/src/auth/GoogleOAuthProvider';
 
 // We would typically load these from an encrypted store or environment variables
 const clientId = process.env.GOOGLE_CLIENT_ID || 'YOUR_CLIENT_ID';

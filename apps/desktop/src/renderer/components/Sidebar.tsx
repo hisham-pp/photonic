@@ -6,7 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Typography, GlassPane } from './ui';
+import { Typography } from './ui';
 
 const menuItems = [
   { text: 'Photos', icon: <PhotoIcon />, active: true },
@@ -18,42 +18,39 @@ const menuItems = [
 
 export function Sidebar() {
   return (
-    <GlassPane sx={{
-      width: 260,
+    <Box sx={{
+      width: 250,
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      borderRight: '1px solid rgba(255,255,255,0.03)',
-      boxShadow: '10px 0 30px rgba(0,0,0,0.2)'
+      backgroundColor: '#1C1C1E',
+      borderRight: '1px solid rgba(255,255,255,0.08)',
     }}>
-      <Box sx={{ flexGrow: 1, pt: 4, px: 2 }}>
-        <Typography variant="overline" sx={{ px: 2, color: 'rgba(255,255,255,0.4)', fontWeight: '700', letterSpacing: '1px', fontFamily: '"Outfit", sans-serif' }}>
+      <Box sx={{ flexGrow: 1, pt: 3, px: 1.5 }}>
+        <Typography variant="caption" sx={{ px: 2, color: '#888', fontWeight: '600', letterSpacing: '0.5px' }}>
           LIBRARY
         </Typography>
         <List sx={{ mt: 1 }}>
           {menuItems.map((item) => (
-            <ListItem key={item.text} disablePadding sx={{ mb: 0.5 }}>
+            <ListItem key={item.text} disablePadding sx={{ mb: 0.25 }}>
               <ListItemButton sx={{ 
-                py: 1, 
+                py: 0.75, 
                 px: 2,
-                borderRadius: '8px',
-                transition: 'all 0.2s',
-                bgcolor: item.active ? 'rgba(0, 229, 255, 0.1)' : 'transparent',
+                borderRadius: '6px',
+                bgcolor: item.active ? 'rgba(10, 132, 255, 0.15)' : 'transparent',
                 '&:hover': { 
-                  bgcolor: item.active ? 'rgba(0, 229, 255, 0.15)' : 'rgba(255,255,255,0.03)',
-                  transform: 'translateX(2px)'
+                  bgcolor: item.active ? 'rgba(10, 132, 255, 0.15)' : 'rgba(255,255,255,0.05)',
                 }
               }}>
-                <ListItemIcon sx={{ minWidth: 36, color: item.active ? '#00e5ff' : 'rgba(255,255,255,0.5)' }}>
-                  {React.cloneElement(item.icon, { fontSize: 'small' })}
+                <ListItemIcon sx={{ minWidth: 32, color: item.active ? '#0A84FF' : '#888' }}>
+                  {React.cloneElement(item.icon, { sx: { fontSize: 20 } })}
                 </ListItemIcon>
                 <ListItemText 
                   primary={item.text} 
                   primaryTypographyProps={{ 
                     variant: 'body2', 
-                    fontWeight: item.active ? 600 : 500,
-                    color: item.active ? '#fff' : 'rgba(255,255,255,0.7)',
-                    fontFamily: '"Inter", sans-serif'
+                    fontWeight: item.active ? 600 : 400,
+                    color: item.active ? '#0A84FF' : '#E0E0E0',
                   }} 
                 />
               </ListItemButton>
@@ -61,16 +58,16 @@ export function Sidebar() {
           ))}
         </List>
       </Box>
-      <Box sx={{ pb: 3, px: 2 }}>
+      <Box sx={{ pb: 3, px: 1.5 }}>
         <List>
           <ListItem disablePadding>
-            <ListItemButton sx={{ px: 2, borderRadius: '8px', '&:hover': { bgcolor: 'rgba(255,255,255,0.03)' } }}>
-              <ListItemIcon sx={{ minWidth: 36, color: 'rgba(255,255,255,0.5)' }}><SettingsIcon fontSize="small" /></ListItemIcon>
-              <ListItemText primary="Settings" primaryTypographyProps={{ variant: 'body2', color: 'rgba(255,255,255,0.7)', fontWeight: 500 }} />
+            <ListItemButton sx={{ px: 2, borderRadius: '6px', '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' } }}>
+              <ListItemIcon sx={{ minWidth: 32, color: '#888' }}><SettingsIcon sx={{ fontSize: 20 }} /></ListItemIcon>
+              <ListItemText primary="Settings" primaryTypographyProps={{ variant: 'body2', color: '#E0E0E0', fontWeight: 400 }} />
             </ListItemButton>
           </ListItem>
         </List>
       </Box>
-    </GlassPane>
+    </Box>
   );
 }
