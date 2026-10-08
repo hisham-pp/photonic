@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-electron/
+release/
+.next/
+*.db
+*.db-journal
+.env
